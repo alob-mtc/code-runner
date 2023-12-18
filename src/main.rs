@@ -17,19 +17,19 @@ static PROG: &str = "docker";
 static TIMEOUT: u64 = 3;
 
 fn main() {
+    let code_snippet = r##"
+    import time
+    
+    print("Sleeping for 5 seconds...")
+    time.sleep(5)
+    print("Woke up!")      
+    "##;
+
     // provition env
     if let Err(e) = provisioning() {
         eprintln!("Failed to provision code-runner env: {e}");
         return;
     }
-
-    let code_snippet = r##"
-import time
-
-print("Sleeping for 5 seconds...")
-time.sleep(5)
-print("Woke up!")      
-"##;
 
     let my_uuid = Uuid::new_v4().to_string();
     let mut child = Command::new(PROG)

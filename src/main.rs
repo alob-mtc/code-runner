@@ -17,13 +17,7 @@ static PROG: &str = "docker";
 static TIMEOUT: u64 = 3;
 
 fn main() {
-    let code_snippet = r##"
-    import time
-    
-    print("Sleeping for 5 seconds...")
-    time.sleep(5)
-    print("Woke up!")      
-    "##;
+    let code_snippet = r##"print("Hello world")"##;
 
     // provition env
     if let Err(e) = provisioning() {

@@ -30,6 +30,8 @@ fn main() {
         .arg("run")
         .arg("--name")
         .arg(&my_uuid)
+        .args(["-m", "256m"])
+        .args(["--cpus", "2.0"])
         .arg(RUNNER)
         .arg(code_snippet)
         .spawn()
